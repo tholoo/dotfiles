@@ -1,0 +1,18 @@
+[credential "https://github.com"]
+	helper = 
+	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
+[user]
+	name = Tholo
+	email = ali.mohamadza@gmail.com
+[core]
+	editor = nvim
+	autocrlf = input
+[color]
+	ui = true
+[init]
+	defaultBranch = main
+[diff]
+	tool = nvimdiff
