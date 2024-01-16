@@ -3,30 +3,30 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
-# export XDG_RUNTIME_DIR="$HOME/.local/run"
+export XDG_RUNTIME_DIR="$HOME/.local/run"
 export XDG_DATA_DIRS=/usr/local/share:/usr/share
 export XDG_CONFIG_DIRS=/etc/xdg
 
-export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME"/aws/credentials                       
-export AWS_CONFIG_FILE="$XDG_CONFIG_HOME"/aws/config 
+#export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME"/aws/credentials                       
+#export AWS_CONFIG_FILE="$XDG_CONFIG_HOME"/aws/config 
 
-export HISTFILE="${XDG_STATE_HOME}"/bash/history
+# export HISTFILE="${XDG_STATE_HOME}"/bash/history
 
-export CARGO_HOME="$XDG_DATA_HOME"/cargo
-
-export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
-
-export IPYTHONDIR="${XDG_CONFIG_HOME}/ipython"
-
-export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
-
-export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
-
-export NVM_DIR="$XDG_DATA_HOME"/nvm
-
+#export CARGO_HOME="$XDG_DATA_HOME"/cargo
+#
+#export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+#
+#export IPYTHONDIR="${XDG_CONFIG_HOME}/ipython"
+#
+#export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
+#
+#export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
+#
+#export NVM_DIR="$XDG_DATA_HOME"/nvm
+#
 export ZSH="$XDG_DATA_HOME"/oh-my-zsh
 
-export AZURE_CONFIG_DIR="$XDG_DATA_HOME"/azure
+# export AZURE_CONFIG_DIR="$XDG_DATA_HOME"/azure
 
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 
@@ -35,7 +35,7 @@ alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
 export HISTFILE="$XDG_STATE_HOME"/zsh/history
 
-# export ZDOTDIR="$HOME"/.config/zsh
+export ZDOTDIR="$HOME"/.config/zsh
 
 
 # export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonrc"
@@ -123,7 +123,7 @@ export ZVM_VI_EDITOR='nvim'
 ZVM_INIT_MODE=sourcing
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH:
-export ZSH="$HOME/.oh-my-zsh"
+# export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
 ZSH_TMUX_AUTOSTART=true
@@ -212,6 +212,7 @@ fi
 # fi
 
 # set PATH so it includes user's private bin if it exists
+PATH="$HOME/.local/bin:$PATH"
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
@@ -291,6 +292,9 @@ bindkey '^|' fuzzy_sheets
 export DENO_INSTALL="/home/tholo/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
-# neofetch
-# tmux new -s "Terminal"
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
+# neofetch
