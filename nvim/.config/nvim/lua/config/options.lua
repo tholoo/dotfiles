@@ -36,3 +36,5 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 
 -- TODO: make a python env for neovim
 -- let g:python3_host_prog = '/path/to/py3nvim/bin/python'
+
+vim.g.copilot_proxy = "localhost:2081"
