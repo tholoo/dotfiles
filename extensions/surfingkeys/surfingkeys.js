@@ -142,9 +142,9 @@ map("H", "S");
 map("L", "D");
 
 // Open closed tabs
-unmap("X");
 unmap("<Ctrl-X>");
 map("<Ctrl-x>", "X");
+unmap("X");
 
 // Scroll Page Down/Up
 map("u", "e");
@@ -160,8 +160,8 @@ map("K", "[[");
 map("J", "]]");
 
 // NOTE:: Used vivaldi shortcuts
-unmap("E");
-unmap("R");
+// unmap("E");
+// unmap("R");
 // map('<Ctrl-n>', 'R');
 // map('<Ctrl-p>', 'E');
 
