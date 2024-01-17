@@ -114,7 +114,7 @@ export ZDOTDIR="$HOME"/.config/zsh
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions zsh-interactive-cd tmux zsh-bat you-should-use colored-man-pages zsh-vi-mode fzf history-substring-search)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions zsh-interactive-cd tmux zsh-bat you-should-use colored-man-pages zsh-vi-mode fzf history-substring-search poetry)
 
 fpath=(~/.zsh.d/ $fpath)
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
@@ -298,3 +298,26 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # neofetch
+
+
+# function cd() {
+#   # auto activate venv with cd
+#   builtin cd "$@"
+#
+#   # if virtualenv isn't activate
+#   if [[ -z "$VIRTUAL_ENV" ]]; then
+#       # If venv folder is found then activate the virtualenv
+#       if [[ -d ./.venv ]]; then
+#         source .venv/bin/activate
+#       elif [[ -f ./pyproject.toml ]]; then
+#         # if pytoml is found activate poetry virtualenv
+#         poetry shell
+#       fi
+#   else
+#       # If the cd'd folder isn't a sub directory of the virtualenv folder, deactivate it
+#       parentdir="$(dirname "$VIRTUAL_ENV")"
+#       if [[ "$PWD"/ != "$parentdir"/* ]] ; then
+#         deactivate
+#       fi
+#   fi
+# }
