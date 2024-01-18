@@ -173,100 +173,98 @@ end
 ### END OF FUNCTIONS ###
 
 
-### ALIASES ###
+### abbrES ###
 # navigation
-alias ..='cd ..'
-alias ...='cd ../..'
-alias .3='cd ../../..'
-alias .4='cd ../../../..'
-alias .5='cd ../../../../..'
+abbr .. 'cd ..'
+abbr ... 'cd ../..'
+abbr .3 'cd ../../..'
+abbr .4 'cd ../../../..'
+abbr .5 'cd ../../../../..'
 
-# vim and emacs
-alias vim='nvim'
-# alias em='/usr/bin/emacs -nw'
-# alias emacs="emacsclient -c -a 'emacs'"
-# alias rem="killall emacs || echo 'Emacs server not running'; /usr/bin/emacs --daemon"
+# abbr em '/usr/bin/emacs -nw'
+# abbr emacs "emacsclient -c -a 'emacs'"
+# abbr rem "killall emacs || echo 'Emacs server not running'; /usr/bin/emacs --daemon"
 
 # Changing "ls" to "eza"
-alias ls='eza --color=always --group-directories-first --git'
-alias la='eza -la --color=always --group-directories-first --git --git-ignore'
-alias laa='eza -la --color=always --group-directories-first'
-alias ll='eza -l --color=always --group-directories-first --git'
-alias lt='eza -l --tree --level=2 --color=always --group-directories-first'
-alias ltt='eza -l --tree --color=always --group-directories-first'
-alias lat='eza -la --tree --level=2 --color=always --group-directories-first'
-alias latt='eza -la --tree --color=always --group-directories-first'
-alias l.='eza -la | egrep "^\."'
+abbr ls 'eza --color=always --group-directories-first --git'
+abbr la 'eza -la --color=always --group-directories-first --git --git-ignore'
+abbr laa 'eza -la --color=always --group-directories-first'
+abbr ll 'eza -l --color=always --group-directories-first --git'
+abbr lt 'eza -l --tree --level=2 --color=always --group-directories-first'
+abbr ltt 'eza -l --tree --color=always --group-directories-first'
+abbr lat 'eza -la --tree --level=2 --color=always --group-directories-first'
+abbr latt 'eza -la --tree --color=always --group-directories-first'
+abbr l. 'eza -la | egrep "^\."'
 
 # pacman and yay
-# alias pacsyu='sudo pacman -Syu' # update only standard pkgs
-# alias pacsyyu='sudo pacman -Syyu' # Refresh pkglist & update standard pkgs
-# alias parsua='paru -Sua --noconfirm' # update only AUR pkgs (paru)
-# alias parsyu='paru -Syu --noconfirm' # update standard pkgs and AUR pkgs (paru)
-# alias unlock='sudo rm /var/lib/pacman/db.lck' # remove pacman lock
-# alias cleanup='sudo pacman -Rns (pacman -Qtdq)' # remove orphaned packages (DANGEROUS!)
+# abbr pacsyu 'sudo pacman -Syu' # update only standard pkgs
+# abbr pacsyyu 'sudo pacman -Syyu' # Refresh pkglist & update standard pkgs
+# abbr parsua 'paru -Sua --noconfirm' # update only AUR pkgs (paru)
+# abbr parsyu 'paru -Syu --noconfirm' # update standard pkgs and AUR pkgs (paru)
+# abbr unlock 'sudo rm /var/lib/pacman/db.lck' # remove pacman lock
+# abbr cleanup 'sudo pacman -Rns (pacman -Qtdq)' # remove orphaned packages (DANGEROUS!)
 
 # get fastest mirrors
-# alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
-# alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
-# alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
-# alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
+# abbr mirror "sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
+# abbr mirrord "sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
+# abbr mirrors "sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
+# abbr mirrora "sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
 
 # Colorize grep output (good for log files)
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
+abbr grep 'grep --color=auto'
+abbr egrep 'egrep --color=auto'
+abbr fgrep 'fgrep --color=auto'
 
 # adding flags
-alias df='df -h' # human-readable sizes
-alias free='free -m' # show sizes in MB
+abbr df 'df -h' # human-readable sizes
+abbr free 'free -m' # show sizes in MB
 
 # ps
-alias psa="ps auxf"
-alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
-alias psmem='ps auxf | sort -nr -k 4'
-alias pscpu='ps auxf | sort -nr -k 3'
+abbr psa "ps auxf"
+abbr psgrep "ps aux | grep -v grep | grep -i -e VSZ -e"
+abbr psmem 'ps auxf | sort -nr -k 4'
+abbr pscpu 'ps auxf | sort -nr -k 3'
 
 # Merge Xresources
-alias merge='xrdb -merge ~/.Xresources'
+abbr merge 'xrdb -merge ~/.Xresources'
 
 # git
-alias ga='git add -u'
-alias gaa='git add .'
-alias gb='git branch'
-alias gco='git checkout'
-alias gcl='git clone'
-alias gc='git commit -m'
-alias gf='git fetch'
-alias pull='git pull origin'
-alias push='git push origin'
-alias gtag='git tag'
-alias gnewtag='git tag -a'
-alias gss='git status -s'
+abbr ga 'git add -u'
+abbr gaa 'git add .'
+abbr gb 'git branch'
+abbr gco 'git checkout'
+abbr gcl 'git clone'
+abbr gc 'git commit -m'
+abbr gf 'git fetch'
+abbr pull 'git pull origin'
+abbr push 'git push origin'
+abbr gtag 'git tag'
+abbr gnewtag 'git tag -a'
+abbr gss 'git status -s'
 
 # get error messages from journalctl
-alias jctl="journalctl -p 3 -xb"
+abbr jctl "journalctl -p 3 -xb"
 
 # gpg encryption
 # verify signature for isos
-alias gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
+abbr gpg-check "gpg2 --keyserver-options auto-key-retrieve --verify"
 # receive the key of a developer
-alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
+abbr gpg-retrieve "gpg2 --keyserver-options auto-key-retrieve --receive-keys"
 
 # Play audio files in current dir by type
-alias playwav='vlc *.wav'
-alias playogg='vlc *.ogg'
-alias playmp3='vlc *.mp3'
+abbr playwav 'vlc *.wav'
+abbr playogg 'vlc *.ogg'
+abbr playmp3 'vlc *.mp3'
 
 # Play video files in current dir by type
-alias playavi='vlc *.avi'
-alias playmov='vlc *.mov'
-alias playmp4='vlc *.mp4'
+abbr playavi 'vlc *.avi'
+abbr playmov 'vlc *.mov'
+abbr playmp4 'vlc *.mp4'
 
 # switch between shells
-alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
-alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
-alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
+abbr tobash "sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
+abbr tozsh "sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
+abbr tofish "sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
 
 # bare git repo alias for dotfiles
 # alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
@@ -286,3 +284,5 @@ fzf_configure_bindings --directory=\ct --variables=\e\cv
 
 ### SETTING THE STARSHIP PROMPT ###
 starship init fish | source
+
+zoxide init fish | source
