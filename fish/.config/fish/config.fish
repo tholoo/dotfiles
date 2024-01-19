@@ -1,4 +1,7 @@
 if status is-interactive
+    set -Ux PYENV_ROOT $HOME/.pyenv
+    fish_add_path $PYENV_ROOT/bin
+
     function fish_user_key_bindings
         bind -M insert \cn down-or-search
         bind -M insert \cp up-or-search
@@ -43,6 +46,21 @@ if status is-interactive
     end
 end
 
+# System
+set -x XDG_DATA_DIRS /usr/share /usr/local/share
+set -x XDG_CONFIG_DIRS /etc/xdg
+
+# User
+set -x XDG_CACHE_HOME $HOME/.cache
+set -x XDG_CONFIG_HOME $HOME/.config
+set -x XDG_DATA_HOME $HOME/.local/share
+set -x XDG_DESKTOP_DIR $HOME/Desktop
+set -x XDG_DOWNLOAD_DIR $HOME/Downloads
+set -x XDG_DOCUMENTS_DIR $HOME/Documents
+set -x XDG_MUSIC_DIR $HOME/Music
+set -x XDG_PICTURES_DIR $HOME/Pictures
+set -x XDG_VIDEOS_DIR $HOME/Videos
+
 ### ADDING TO THE PATH
 # First line removes the path; second line sets it.  Without the first line,
 # your path gets massive and fish becomes very slow.
@@ -51,9 +69,11 @@ set -U fish_user_paths $HOME/.bin $HOME/.local/bin $HOME/.local/share/cargo/bin 
 
 ### EXPORT ###
 set fish_greeting # Suppresses fish's intro message
-set TERM xterm-256color # Sets the terminal type
+set TERM tmux-256color # Sets the terminal type
 set EDITOR nvim # $EDITOR use Emacs in terminal
-set VISUAL nvim # $VISUAL use Emacs in GUI mode
+set SUDO_EDITOR nvim
+set VISUAL nvim
+set DIFFPROG "nvim -d"
 
 ### SET MANPAGER
 
@@ -186,15 +206,15 @@ abbr .5 'cd ../../../../..'
 # abbr rem "killall emacs || echo 'Emacs server not running'; /usr/bin/emacs --daemon"
 
 # Changing "ls" to "eza"
-abbr ls 'eza --color=always --group-directories-first --git'
-abbr la 'eza -la --color=always --group-directories-first --git --git-ignore'
-abbr laa 'eza -la --color=always --group-directories-first'
-abbr ll 'eza -l --color=always --group-directories-first --git'
-abbr lt 'eza -l --tree --level=2 --color=always --group-directories-first'
-abbr ltt 'eza -l --tree --color=always --group-directories-first'
-abbr lat 'eza -la --tree --level=2 --color=always --group-directories-first'
-abbr latt 'eza -la --tree --color=always --group-directories-first'
-abbr l. 'eza -la | egrep "^\."'
+alias ls='eza --color=always --group-directories-first --git'
+alias la='eza -la --color=always --group-directories-first --git --git-ignore -I .venv -I __pycache__ -I .git'
+alias laa='eza -la --color=always --group-directories-first'
+alias ll='eza -l --color=always --group-directories-first --git -I .venv -I __pycache__ -I .git'
+alias lt='eza -l --tree --level=2 --color=always --group-directories-first -I .venv -I __pycache__ -I .git'
+alias ltt='eza -l --tree --color=always --group-directories-first -I .venv -I __pycache__ -I .git'
+alias lat='eza -la --tree --level=2 --color=always --group-directories-first -I .venv -I __pycache__ -I .git'
+alias latt='eza -la --tree --color=always --group-directories-first -I .venv -I __pycache__ -I .git'
+alias l.='eza -la | egrep "^\."'
 
 # pacman and yay
 # abbr pacsyu 'sudo pacman -Syu' # update only standard pkgs
@@ -211,9 +231,9 @@ abbr l. 'eza -la | egrep "^\."'
 # abbr mirrora "sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
 
 # Colorize grep output (good for log files)
-abbr grep 'grep --color=auto'
-abbr egrep 'egrep --color=auto'
-abbr fgrep 'fgrep --color=auto'
+alias grep 'grep --color=auto'
+alias egrep 'egrep --color=auto'
+alias fgrep 'fgrep --color=auto'
 
 # adding flags
 abbr df 'df -h' # human-readable sizes
@@ -229,7 +249,7 @@ abbr pscpu 'ps auxf | sort -nr -k 3'
 abbr merge 'xrdb -merge ~/.Xresources'
 
 # git
-abbr ga 'git add -u'
+abbr ga 'git add'
 abbr gaa 'git add .'
 abbr gb 'git branch'
 abbr gco 'git checkout'
@@ -266,6 +286,23 @@ abbr tobash "sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
 abbr tozsh "sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
 abbr tofish "sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
 
+function ask
+    gh copilot suggest "$(read -l)"
+end
+
+function exp
+    gh copilot explain "$(read -l)"
+end
+
+abbr reload source ~/.config/fish/config.fish
+abbr fishr source ~/.config/fish/config.fish
+abbr fishc nvim ~/.config/fish/config.fish
+
+
+function dot
+    set -l query (fdfind . ~/git/dotfiles/ -t f -H -E .git | fzf --layout reverse --preview "head {}")
+    nvim "$query"
+end
 # bare git repo alias for dotfiles
 # alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 
@@ -286,3 +323,6 @@ fzf_configure_bindings --directory=\ct --variables=\e\cv
 starship init fish | source
 
 zoxide init fish | source
+
+pyenv init - | source
+status --is-interactive; and pyenv virtualenv-init - | source
