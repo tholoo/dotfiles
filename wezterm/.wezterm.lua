@@ -15,9 +15,26 @@ local function is_vim(pane)
 	return pane:get_user_vars().IS_NVIM == "true"
 end
 
+-- local mux = wezterm.mux
+
+-- wezterm.on("gui-startup", function()
+-- 	local tab, pane, window = mux.spawn_window({})
+-- 	window:gui_window():maximize()
+-- end)
+
 -- This is where you actually apply your config choices
 
 -- config.default_domain = "WSL:Ubuntu"
+
+-- config.keys = {
+-- 	{
+-- 		key = "DownArrow",
+-- 		mods = "CTRL",
+-- 		-- action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+-- 		-- action = wezterm.action.SendString("\x1b[32;5u"),
+-- 		action = wezterm.action.SendString("\x1b[32;5u"),
+-- 	},
+-- }
 
 config.initial_rows = 25
 config.initial_cols = 100
@@ -34,36 +51,41 @@ config.font = wezterm.font_with_fallback({
 	{
 		family = "FiraCode Nerd Font",
 		-- harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
-		weight = "Regular",
-		stretch = "Expanded",
-		italic = false,
+		-- weight = "Regular",
+		-- stretch = "Expanded",
+		-- italic = false,
 	},
 	{
-		family = "JetBrainsMono Nerd Font",
-		weight = "Regular",
-		stretch = "Expanded",
-		italic = false,
+		family = "Vazirmatn",
 	},
+	-- {
+	-- 	family = "JetBrainsMono Nerd Font",
+	-- 	weight = "Regular",
+	-- 	stretch = "Expanded",
+	-- 	italic = false,
+	-- },
 })
-config.font_shaper = "Harfbuzz"
-config.front_end = "WebGpu"
+-- config.font_shaper = "Harfbuzz"
+-- config.front_end = "WebGpu"
 config.bold_brightens_ansi_colors = "BrightAndBold"
-config.freetype_load_target = "Normal" -- Normal, Light, Mono, HorizontalLcd
-config.freetype_load_flags = "DEFAULT" -- DEFAULT, NO_HINTING, NO_BITMAP, FORCE_AUTOHINT, MONOCHROME, NO_AUTOHINT
-config.underline_position = -3
+-- config.freetype_load_target = "Normal" -- Normal, Light, Mono, HorizontalLcd
+-- config.freetype_load_flags = "DEFAULT" -- DEFAULT, NO_HINTING, NO_BITMAP, FORCE_AUTOHINT, MONOCHROME, NO_AUTOHINT
+config.underline_position = -3.5
 config.underline_thickness = 1
 config.window_decorations = "RESIZE" -- NONE | TITLE | RESIZE | INTEGRATED_BUTTONS
 config.audible_bell = "Disabled"
-config.default_cursor_style = "BlinkingBar"
-config.cursor_blink_ease_in = "Constant"
-config.cursor_blink_ease_out = "Constant"
-config.cursor_blink_rate = 700
+-- config.default_cursor_style = "BlinkingBar"
+-- config.cursor_blink_ease_in = "Constant"
+-- config.cursor_blink_ease_out = "Constant"
+-- config.cursor_blink_rate = 700
 
 config.line_height = 1.3 -- 1.2
-config.cell_width = 0.95
+-- config.cell_width = 0.95
+-- config.cell_width = 1
 config.font_size = 12.5
 
 config.bidi_enabled = true
+config.bidi_direction = "AutoLeftToRight"
 
 config.window_close_confirmation = "NeverPrompt"
 
