@@ -3,9 +3,13 @@ return {
   dependencies = {
     "nvim-telescope/telescope-fzf-native.nvim",
     build = "make",
-    config = function()
-      require("telescope").load_extension("fzf")
-    end,
+    -- opts = function(_, opts)
+    --
+    --   return opts
+    -- end
+    -- config = function()
+    --   require("telescope").load_extension("fzf")
+    -- end,
   },
   keys = {
     { "<C-f>", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
