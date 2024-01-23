@@ -303,6 +303,11 @@ function dot
     set -l query (fdfind . ~/git/dotfiles/ -t f -H -E .git | fzf --layout reverse --preview "head {}")
     nvim "$query"
 end
+
+function mkcd
+    mkdir $argv
+    and cd $argv
+end
 # bare git repo alias for dotfiles
 # alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 
