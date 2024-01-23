@@ -298,6 +298,7 @@ abbr reload source ~/.config/fish/config.fish
 abbr fishr source ~/.config/fish/config.fish
 abbr fishc nvim ~/.config/fish/config.fish
 
+abbr glog "git log --oneline --graph --decorate --all --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 
 function dot
     set -l query (fdfind . ~/git/dotfiles/ -t f -H -E .git | fzf --layout reverse --preview "head {}")
