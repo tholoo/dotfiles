@@ -17,7 +17,9 @@ vim.opt.showtabline = 0
 
 -- sync with system clipboard
 vim.o.clipboard = "unnamedplus"
+
 vim.o.termguicolors = true
+vim.opt.termguicolors = true
 
 -- borders
 vim.diagnostic.config({
