@@ -38,6 +38,15 @@ return {
 
       -- markdown
       null_ls.builtins.diagnostics.markdownlint_cli2,
+
+      -- sql
+      null_ls.builtins.formatting.sql_formatter,
+      null_ls.builtins.diagnostics.sqlfluff.with({
+        extra_args = { "--dialect", "mysql" },
+      }),
+
+      -- bash
+      null_ls.builtins.formatting.shfmt,
     })
   end,
 }
