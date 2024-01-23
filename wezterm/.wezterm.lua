@@ -42,7 +42,8 @@ config.scrollback_lines = 10000
 
 config.color_scheme = "Atom"
 config.enable_tab_bar = false
-config.window_background_opacity = 1 -- 0.95
+-- config.window_background_opacity = 1 -- 0.95
+config.window_background_opacity = 0.9 -- 0.95
 -- config.default_prog = { "wsl.exe" }
 config.default_cwd = "~"
 
