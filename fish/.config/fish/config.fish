@@ -309,6 +309,8 @@ abbr reload source ~/.config/fish/config.fish
 abbr fishr source ~/.config/fish/config.fish
 abbr fishc nvim ~/.config/fish/config.fish
 
+abbr restow "stow --restow --verbose --target ~"
+
 abbr glog "git log --oneline --graph --decorate --all --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 
 function dot
@@ -320,6 +322,14 @@ function mkcd
     mkdir $argv
     and cd $argv
 end
+
+function cheat.sh
+    curl cheat.sh/$argv
+end
+
+# register completions (on-the-fly, non-cached, because the actual command won't be cached anyway
+complete -c cheat.sh -xa '(curl -s cheat.sh/:list)'
+
 # bare git repo alias for dotfiles
 # alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 
