@@ -1,12 +1,4 @@
 if status is-interactive
-    set -Ux PYENV_ROOT $HOME/.pyenv
-    fish_add_path $PYENV_ROOT/bin
-
-    function fish_user_key_bindings
-        bind -M insert \cn down-or-search
-        bind -M insert \cp up-or-search
-    end
-
     # Commands to run in interactive sessions can go here
     # ### SET EITHER DEFAULT EMACS MODE OR VI MODE ###
     # Emulates vim's cursor shape behavior
@@ -44,6 +36,17 @@ if status is-interactive
             tmux new-session -s terminal
         end
     end
+
+    set -Ux PYENV_ROOT $HOME/.pyenv
+    fish_add_path $PYENV_ROOT/bin
+    pyenv init - | source
+    status --is-interactive; and pyenv virtualenv-init - | source
+
+    function fish_user_key_bindings
+        bind -M insert \cn down-or-search
+        bind -M insert \cp up-or-search
+        bind -M insert -k nul accept-autosuggestion
+    end
 end
 
 # System
@@ -66,10 +69,13 @@ set -x XDG_VIDEOS_DIR $HOME/Videos
 # your path gets massive and fish becomes very slow.
 set -e fish_user_paths
 set -U fish_user_paths $HOME/.bin $HOME/.local/bin $HOME/.local/share/cargo/bin $HOME/Applications /var/lib/flatpak/exports/bin/ $fish_user_paths
+set -Ux PYENV_ROOT $HOME/.pyenv
+fish_add_path $PYENV_ROOT/bin
 
 ### EXPORT ###
 set fish_greeting # Suppresses fish's intro message
 set TERM tmux-256color # Sets the terminal type
+# set TERM xterm-256color
 set EDITOR nvim # $EDITOR use Emacs in terminal
 set SUDO_EDITOR nvim
 set VISUAL nvim
@@ -286,6 +292,11 @@ abbr tobash "sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
 abbr tozsh "sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
 abbr tofish "sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
 
+function multicd
+    echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
+end
+abbr --add dotdot --regex '^\.\.+$' --function multicd
+
 function ask
     gh copilot suggest "$(read -l)"
 end
@@ -329,6 +340,3 @@ fzf_configure_bindings --directory=\ct --variables=\e\cv
 starship init fish | source
 
 zoxide init fish | source
-
-pyenv init - | source
-status --is-interactive; and pyenv virtualenv-init - | source
