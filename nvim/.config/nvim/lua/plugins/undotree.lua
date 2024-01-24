@@ -1,11 +1,11 @@
 return {
   "mbbill/undotree",
 
-  keys = {
-    {
-      "<leader>ou",
-      "<CMD>UndotreeToggle<CR>",
-      "Undo Tree",
-    },
-  },
+  -- keys = {
+  --   {
+  --     "<leader>ou",
+  --     "<CMD>UndotreeToggle<CR>",
+  --     "Undo Tree",
+  --   },
+  -- },
 }
