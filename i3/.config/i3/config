@@ -282,3 +282,6 @@ exec_always --no-startup-id gnome-power-manager
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id gnome-flashback
 exec gsettings set org.gnome.gnome-flashback desktop false
+
+# gsettings set org.gnome.gnome-flashback screenshot false
+bindsym --release Print exec --no-startup-id "flameshot"
