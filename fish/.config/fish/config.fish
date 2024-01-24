@@ -312,6 +312,7 @@ abbr fishc nvim ~/.config/fish/config.fish
 abbr restow "stow --restow --verbose --target ~"
 
 abbr glog "git log --oneline --graph --decorate --all --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
+abbr gcb "git checkout -b"
 
 function dot
     set -l query (fdfind . ~/git/dotfiles/ -t f -H -E .git | fzf --layout reverse --preview "head {}")
