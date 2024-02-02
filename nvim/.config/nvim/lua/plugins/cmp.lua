@@ -28,29 +28,12 @@ return {
   --   return opts
   -- end,
 
-  opts = function(_, opts)
-    opts.window = {
-      completion = require("cmp.config.window").bordered({ scrollbar = false }),
-      documentation = require("cmp.config.window").bordered(),
-    }
-    opts.mapping = {
-      ["<CR>"] = require("cmp").mapping(function(fallback)
-        fallback()
-      end),
-
-      ["<C-Space>"] = require("cmp").mapping.confirm({
-        behavior = require("cmp").ConfirmBehavior.Insert,
-        select = true,
-      }),
-    }
-  end,
-
-  -- opts = {
-  --   window = {
+  -- opts = function(_, opts)
+  --   opts.window = {
   --     completion = require("cmp.config.window").bordered({ scrollbar = false }),
   --     documentation = require("cmp.config.window").bordered(),
-  --   },
-  --   mapping = {
+  --   }
+  --   opts.mapping = {
   --     ["<CR>"] = require("cmp").mapping(function(fallback)
   --       fallback()
   --     end),
@@ -59,6 +42,25 @@ return {
   --       behavior = require("cmp").ConfirmBehavior.Insert,
   --       select = true,
   --     }),
-  --   },
-  -- },
+  --   }
+  --
+  --   return opts
+  -- end,
+
+  opts = {
+    window = {
+      completion = require("cmp.config.window").bordered({ scrollbar = false }),
+      documentation = require("cmp.config.window").bordered(),
+    },
+    mapping = {
+      ["<CR>"] = require("cmp").mapping(function(fallback)
+        fallback()
+      end),
+
+      ["<C-Space>"] = require("cmp").mapping.confirm({
+        behavior = require("cmp").ConfirmBehavior.Insert,
+        select = true,
+      }),
+    },
+  },
 }

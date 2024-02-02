@@ -25,6 +25,8 @@ return {
       -- html
       null_ls.builtins.diagnostics.djlint,
 
+      null_ls.builtins.formatting.djlint,
+
       -- .env
       null_ls.builtins.diagnostics.dotenv_linter,
 
