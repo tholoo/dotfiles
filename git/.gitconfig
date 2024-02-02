@@ -5,8 +5,6 @@
 	helper = 
 	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
 [user]
-	name = Tholo
-	email = ali.mohamadza@gmail.com
 [core]
 	editor = nvim
 	autocrlf = input
@@ -16,3 +14,9 @@
 	defaultBranch = main
 [diff]
 	tool = nvimdiff
+[http]
+	proxy = http://localhost:2081
+[https]
+	proxy = https://localhost:2081
+[pull]
+	ff = only
