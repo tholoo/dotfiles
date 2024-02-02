@@ -212,14 +212,15 @@ abbr .5 'cd ../../../../..'
 # abbr rem "killall emacs || echo 'Emacs server not running'; /usr/bin/emacs --daemon"
 
 # Changing "ls" to "eza"
-alias ls='eza --color=always --group-directories-first --git'
-alias la='eza -la --color=always --group-directories-first --git --git-ignore -I .venv -I __pycache__ -I .git'
-alias laa='eza -la --color=always --group-directories-first'
-alias ll='eza -l --color=always --group-directories-first --git -I .venv -I __pycache__ -I .git'
-alias lt='eza -l --tree --level=2 --color=always --group-directories-first -I .venv -I __pycache__ -I .git'
-alias ltt='eza -l --tree --color=always --group-directories-first -I .venv -I __pycache__ -I .git'
-alias lat='eza -la --tree --level=2 --color=always --group-directories-first -I .venv -I __pycache__ -I .git'
-alias latt='eza -la --tree --color=always --group-directories-first -I .venv -I __pycache__ -I .git'
+alias l='eza --color=auto --group-directories-first --git'
+alias la='eza -la --color=auto --group-directories-first --git --git-ignore -I .venv -I __pycache__ -I .git'
+alias ls=la
+alias laa='eza -la --color=auto --group-directories-first'
+alias ll='eza -l --color=auto --group-directories-first --git -I .venv -I __pycache__ -I .git'
+alias lt='eza -l --tree --level=2 --color=auto --group-directories-first -I .venv -I __pycache__ -I .git'
+alias ltt='eza -l --tree --color=auto --group-directories-first -I .venv -I __pycache__ -I .git'
+alias lat='eza -la --tree --level=2 --color=auto --group-directories-first -I .venv -I __pycache__ -I .git'
+alias latt='eza -la --tree --color=auto --group-directories-first -I .venv -I __pycache__ -I .git'
 alias l.='eza -la | egrep "^\."'
 
 # pacman and yay
@@ -255,7 +256,7 @@ abbr pscpu 'ps auxf | sort -nr -k 3'
 abbr merge 'xrdb -merge ~/.Xresources'
 
 # git
-abbr ga 'git add'
+# abbr ga 'git add'
 abbr gaa 'git add .'
 abbr gb 'git branch'
 abbr gco 'git checkout'
