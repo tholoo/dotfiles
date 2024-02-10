@@ -233,6 +233,8 @@ alias lat='eza -la --tree --level=2 --color=auto --group-directories-first -I .v
 alias latt='eza -la --tree --color=auto --group-directories-first -I .venv -I __pycache__ -I .git'
 alias l.='eza -la | egrep "^\."'
 
+alias ipython="ipython --TerminalInteractiveShell.editing_mode=vi --TerminalInteractiveShell.emacs_bindings_in_vi_insert_mode=False"
+
 # pacman and yay
 # abbr pacsyu 'sudo pacman -Syu' # update only standard pkgs
 # abbr pacsyyu 'sudo pacman -Syyu' # Refresh pkglist & update standard pkgs
