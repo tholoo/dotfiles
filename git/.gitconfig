@@ -5,6 +5,8 @@
 	helper = 
 	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
 [user]
+  name = Ali Mohammadzadeh
+  email = ali.mohamadza@gmail.com
 [core]
 	editor = nvim
 	autocrlf = input

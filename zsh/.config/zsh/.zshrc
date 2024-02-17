@@ -321,3 +321,5 @@ eval "$(pyenv virtualenv-init -)"
 #       fi
 #   fi
 # }
+
+source /home/tholo/.config/broot/launcher/bash/br
