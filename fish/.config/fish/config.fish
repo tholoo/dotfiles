@@ -222,15 +222,15 @@ abbr .5 'cd ../../../../..'
 # abbr rem "killall emacs || echo 'Emacs server not running'; /usr/bin/emacs --daemon"
 
 # Changing "ls" to "eza"
-alias l='eza --color=auto --group-directories-first --git'
-alias la='eza -la --color=auto --group-directories-first --git --git-ignore -I .venv -I __pycache__ -I .git'
+alias l='eza --color=auto --icons=auto --group-directories-first --git'
+alias la='eza -la --color=auto --icons=auto --no-permissions --no-user --group-directories-first --git --git-ignore -I .venv -I __pycache__ -I .git'
 alias ls=la
-alias laa='eza -la --color=auto --group-directories-first'
-alias ll='eza -l --color=auto --group-directories-first --git -I .venv -I __pycache__ -I .git'
-alias lt='eza -l --tree --level=2 --color=auto --group-directories-first -I .venv -I __pycache__ -I .git'
-alias ltt='eza -l --tree --color=auto --group-directories-first -I .venv -I __pycache__ -I .git'
-alias lat='eza -la --tree --level=2 --color=auto --group-directories-first -I .venv -I __pycache__ -I .git'
-alias latt='eza -la --tree --color=auto --group-directories-first -I .venv -I __pycache__ -I .git'
+alias laa='eza -la --color=auto --icons=auto --group-directories-first'
+alias ll='eza -l --color=auto --icons=auto --group-directories-first --git -I .venv -I __pycache__ -I .git'
+alias lt='eza -l --tree --level=2 --color=auto --icons=auto --group-directories-first -I .venv -I __pycache__ -I .git'
+alias ltt='eza -l --tree --color=auto --icons=auto --group-directories-first -I .venv -I __pycache__ -I .git'
+alias lat='eza -la --tree --level=2 --color=auto --icons=auto --group-directories-first -I .venv -I __pycache__ -I .git'
+alias latt='eza -la --tree --color=auto --icons=auto --group-directories-first -I .venv -I __pycache__ -I .git'
 alias l.='eza -la | egrep "^\."'
 
 alias ipython="ipython --TerminalInteractiveShell.editing_mode=vi --TerminalInteractiveShell.emacs_bindings_in_vi_insert_mode=False"
